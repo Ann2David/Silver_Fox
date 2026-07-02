@@ -469,65 +469,43 @@ body{
   box-shadow:0 16px 32px -18px rgba(0,0,0,.3);
 }
 
-/* section label (shared) */
+/* skill tabs */
+.about-skills{max-width:720px}
 .section-label{
   font-size:.75rem;font-weight:600;letter-spacing:.3rem;
-  text-transform:uppercase;color:#9ca3af;margin-bottom:.5rem;
+  text-transform:uppercase;color:#9ca3af;margin-bottom:1rem;
 }
-.section-heading{
-  font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:#111;
-  margin-bottom:.75rem;
+.sk-cats{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.sk-cat{
+  padding:.5rem 1.25rem;
+  background:transparent;border:2px solid #d1cdc3;color:#6b7280;
+  border-radius:1rem;font-family:inherit;font-size:.9rem;font-weight:600;
+  cursor:pointer;transition:background .25s,color .25s,border-color .25s;
 }
-.section-sub{font-size:1rem;color:#6b7280;max-width:560px;line-height:1.7;margin-bottom:2rem}
+.sk-cat:hover{border-color:#374151;color:#374151}
+.sk-cat.active{background:#374151;border-color:#374151;color:#f9fafb}
 
-/* skills marquee */
-.about-skills{max-width:none}
-.marquee{
-  position:relative;
-  overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-}
-.marquee-track{
-  display:flex;gap:.75rem;width:max-content;
-  animation:marquee 28s linear infinite;
-}
-.marquee:hover .marquee-track{animation-play-state:paused}
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+.sk-panel{display:none}
+.sk-panel.active{display:flex;flex-wrap:wrap;gap:.6rem}
 .sk-tag{
-  padding:.6rem 1.4rem;
+  padding:.45rem 1rem;
   background:#f4f2ee;color:#374151;
-  border-radius:.7rem;font-size:.9rem;font-weight:600;
-  border:1px solid #ddd8ce;white-space:nowrap;flex-shrink:0;
+  border-radius:.6rem;font-size:.85rem;font-weight:500;
+  border:1px solid #ddd8ce;
 }
 
 /* services */
-.about-services{max-width:none}
-.svc-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
-  margin-top:1.5rem;
-}
+.about-services{max-width:760px}
+.svc-list{display:flex;flex-direction:column;margin-top:1.5rem}
 .svc-item{
-  background:#f4f2ee;border:1px solid #ddd8ce;border-radius:.75rem;
-  padding:1.75rem;
-  transition:border-color .25s, transform .25s, box-shadow .25s;
+  display:grid;grid-template-columns:auto 1fr;gap:1.25rem;
+  padding:1.5rem 0;
+  border-bottom:1px solid #d8d4cb;
 }
-.svc-item:hover{border-color:#374151;transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(0,0,0,.25)}
-.svc-name{font-size:1.1rem;font-weight:700;color:#111;margin-bottom:.5rem}
-.svc-desc{font-size:.9rem;color:#6b7280;line-height:1.65;margin-bottom:1rem}
-.svc-feats{list-style:none;display:flex;flex-direction:column;gap:.45rem}
-.svc-feats li{
-  font-size:.85rem;color:#4b5563;padding-left:1.1rem;position:relative;
-}
-.svc-feats li::before{
-  content:'';position:absolute;left:0;top:.5em;
-  width:6px;height:6px;border-radius:50%;background:#9ca3af;
-}
-@media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+.svc-item:first-child{border-top:1px solid #d8d4cb}
+.svc-num{font-size:.85rem;font-weight:700;color:#9ca3af;padding-top:.25rem}
+.svc-name{font-size:1.15rem;font-weight:700;color:#111;margin-bottom:.35rem}
+.svc-desc{font-size:.95rem;color:#6b7280;line-height:1.7;max-width:460px}
 
 /* timeline */
 .about-timeline{max-width:760px}
@@ -557,122 +535,6 @@ body{
   display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;
 }
 .cta-note{font-size:.9rem;color:#9ca3af}
-
-.about-quote{
-  text-align:center;padding:3rem 1rem;
-  border-top:1px solid #d8d4cb;border-bottom:1px solid #d8d4cb;
-}
-.about-quote p{
-  font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600;color:#111;
-  max-width:680px;margin:0 auto .75rem;line-height:1.4;font-style:italic;
-}
-.about-quote span{font-size:.85rem;color:#9ca3af;letter-spacing:.05em}
-
-/* ══════════════════════════════════════════════════
-   PROJECTS SECTION
-   ══════════════════════════════════════════════════ */
-.projects-section{
-  padding:8rem 6% 6rem;
-  display:flex;flex-direction:column;gap:2.5rem;
-}
-.projects-intro{max-width:620px}
-
-/* filter tabs (fbtn) */
-.proj-filters{display:flex;gap:.75rem;flex-wrap:wrap}
-.fbtn{
-  padding:.55rem 1.4rem;
-  background:transparent;border:2px solid #d1cdc3;color:#6b7280;
-  border-radius:1rem;font-family:inherit;font-size:.88rem;font-weight:600;
-  cursor:pointer;transition:background .25s,color .25s,border-color .25s;
-}
-.fbtn:hover{border-color:#374151;color:#374151}
-.fbtn.active{background:#374151;border-color:#374151;color:#f9fafb}
-
-/* project card grid */
-.pc-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;
-}
-.pc{
-  background:#f4f2ee;border:1px solid #ddd8ce;border-radius:.9rem;
-  overflow:hidden;cursor:pointer;
-  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-}
-.pc:hover{
-  transform:translateY(-6px);
-  box-shadow:0 22px 40px -24px rgba(0,0,0,.32);
-  border-color:#374151;
-}
-.pc.pc-hidden{display:none}
-
-.pc-img{
-  position:relative;height:400px;
-  
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.pc-img::before{
-  content:'';position:absolute;inset:-20%;
-}
-
-
-.pc-body{padding:1.5rem}
-.pc-cat{
-  font-size:.68rem;font-weight:700;letter-spacing:.15rem;text-transform:uppercase;
-  color:#9ca3af;margin-bottom:.5rem;
-}
-.pc-name{font-size:1.2rem;font-weight:700;color:#111;margin-bottom:.5rem}
-.pc-desc{font-size:.9rem;color:#6b7280;line-height:1.6;margin-bottom:1.1rem}
-.pc-links{display:flex;gap:.75rem;flex-wrap:wrap}
-.pc-link{
-  font-size:.8rem;font-weight:700;color:#374151;
-  text-decoration:none;padding:.4rem .9rem;border:1.5px solid #374151;border-radius:.6rem;
-  transition:background .25s,color .25s;
-}
-.pc-link:hover{background:#374151;color:#f9fafb}
-
-@media(max-width:700px){.pc-grid{grid-template-columns:1fr}}
-
-/* project detail modal */
-.pc-modal-overlay{
-  position:fixed;inset:0;z-index:200;
-  background:rgba(17,17,17,.55);
-  display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;
-  opacity:0;visibility:hidden;
-  transition:opacity .3s ease, visibility .3s ease;
-}
-.pc-modal-overlay.open{opacity:1;visibility:visible}
-.pc-modal{
-  background:#e8e5e0;max-width:560px;width:100%;
-  border-radius:1rem;padding:2.25rem;position:relative;
-  max-height:85vh;overflow-y:auto;
-  transform:translateY(20px) scale(.97);
-  transition:transform .3s ease;
-}
-.pc-modal-overlay.open .pc-modal{transform:translateY(0) scale(1)}
-.pc-modal-close{
-  position:absolute;top:1rem;right:1.2rem;
-  background:none;border:none;font-size:1.4rem;cursor:pointer;color:#6b7280;
-  line-height:1;
-}
-.pc-modal-close:hover{color:#111}
-.pc-modal-mark{
-  width:100%;height:150px;border-radius:.75rem;background:#374151;
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.75rem;font-weight:800;color:#e8e5e0;margin-bottom:1.5rem;
-}
-.pc-modal-cat{
-  font-size:.68rem;font-weight:700;letter-spacing:.15rem;text-transform:uppercase;
-  color:#9ca3af;margin-bottom:.4rem;
-}
-.pc-modal-title{font-size:1.55rem;font-weight:700;color:#111;margin-bottom:.9rem}
-.pc-modal-desc{font-size:.95rem;color:#4b5563;line-height:1.75;margin-bottom:1.25rem}
-.pc-modal-tech{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
-.pc-modal-tech span{
-  padding:.35rem .8rem;background:#f4f2ee;border:1px solid #ddd8ce;border-radius:.5rem;
-  font-size:.8rem;color:#374151;font-weight:600;
-}
-.pc-modal-links{display:flex;gap:1rem;flex-wrap:wrap}
 
 @media(max-width:900px){
   .about-intro{grid-template-columns:1fr}
@@ -762,7 +624,7 @@ footer{
         Hi! I'm Ann David, a frontend developer and founder of Silver Fox, specialising in modern web development with React, TypeScript and Tailwind CSS. I build fast, beautiful, and accessible digital experiences.
       </p>
       <div class="home-btns">
-        <a href="ANN DAVID – RESUME (2).pdf" download class="btn-dark">Download CV</a>
+        <a href="/docs/cv.pdf" download class="btn-dark">Download CV</a>
         <a href="#contact" class="btn-outline">Contact Me</a>
       </div>
     </div>
@@ -781,13 +643,12 @@ footer{
     <!-- intro: eyebrow, title, bio + photo cluster -->
     <div class="about-intro" data-anim>
       <div>
-        <span class="eyebrow">About Me</span>
-        <h1 class="about-title">Hi, I'm Ann David.</h1>
+        <span class="eyebrow">About</span>
+        <h1 class="about-title">The developer behind Silver Fox.</h1>
         <div class="dividers"><span></span><span></span></div>
         <div class="about-bio">
-          <p>I'm the founder of Silver Fox, my personal developer studio where I get to express my passion for technology and innovation.</p>
-          <p>I've always loved exploring new ideas from my love for music to traveling and discovering different cultures. My journey in tech began as a beginner while I was in university, and over time, coding has not only helped me grow professionally, but also personally. Every project I work on is a chance to challenge myself and create something meaningful.</p>
-          <p>Outside of tech, I'm an avid reader books inspire me, teach me, and fuel my creativity. Through Silver Fox, I bring all these experiences together, building digital solutions that reflect my skills, creativity, and vision for the tech space.</p>
+          <p>I'm Ann David — a frontend developer who cares as much about how an interface feels to use as how clean it is to build. My days are split between client work and running Silver Fox, my own design-led studio.</p>
+          <p>I work mainly in React, TypeScript and Tailwind CSS, but the real focus is always the same: fast, accessible, well-crafted experiences that hold up under real use — not just in a demo.</p>
         </div>
       </div>
 
@@ -797,145 +658,102 @@ footer{
                onerror="this.parentElement.style.background='#9ca3af';this.style.display='none'">
         </div>
         <div class="panel-img pf-sm">
-          <img src="WhatsApp Image 2025-07-01 at 11.16.42.jpeg" alt="Ann David at work"
+          <img src="face card 1.jpeg" alt="Ann David at work"
                onerror="this.parentElement.style.background='#374151';this.style.display='none'">
         </div>
       </div>
     </div>
 
-    <!-- technical skills -->
+    <!-- skills -->
     <div class="about-skills">
       <p class="section-label">Skills</p>
-      <h2 class="section-heading">Technical Skills</h2>
-      <div class="marquee">
-        <div class="marquee-track">
-          <span class="sk-tag">HTML</span>
-          <span class="sk-tag">Tailwind CSS</span>
-          <span class="sk-tag">JavaScript</span>
-          <span class="sk-tag">React</span>
-          <span class="sk-tag">TypeScript</span>
-          <span class="sk-tag">AI</span>
-          <span class="sk-tag">Git &amp; GitHub</span>
-          <span class="sk-tag">CSS</span>
-          <span class="sk-tag">Responsive Design</span>
-          <span class="sk-tag">UI/UX</span>
-          <!-- duplicate set for seamless loop -->
-          <span class="sk-tag">HTML</span>
-          <span class="sk-tag">Tailwind CSS</span>
-          <span class="sk-tag">JavaScript</span>
-          <span class="sk-tag">React</span>
-          <span class="sk-tag">TypeScript</span>
-          <span class="sk-tag">AI</span>
-          <span class="sk-tag">Git &amp; GitHub</span>
-          <span class="sk-tag">CSS</span>
-          <span class="sk-tag">Responsive Design</span>
-          <span class="sk-tag">UI/UX</span>
-        </div>
+      <div class="sk-cats">
+        <button class="sk-cat active" data-panel="frontend">Frontend</button>
+        <button class="sk-cat" data-panel="tools">Tools &amp; Workflow</button>
+        <button class="sk-cat" data-panel="design">Design</button>
+      </div>
+      <div class="sk-panel active" data-panel="frontend">
+        <span class="sk-tag">React</span>
+        <span class="sk-tag">TypeScript</span>
+        <span class="sk-tag">JavaScript (ES6+)</span>
+        <span class="sk-tag">Tailwind CSS</span>
+        <span class="sk-tag">HTML5 &amp; CSS3</span>
+      </div>
+      <div class="sk-panel" data-panel="tools">
+        <span class="sk-tag">Git &amp; GitHub</span>
+        <span class="sk-tag">Vite</span>
+        <span class="sk-tag">Vercel</span>
+        <span class="sk-tag">VS Code</span>
+        <span class="sk-tag">npm</span>
+      </div>
+      <div class="sk-panel" data-panel="design">
+        <span class="sk-tag">Figma</span>
+        <span class="sk-tag">Design Systems</span>
+        <span class="sk-tag">Responsive Design</span>
+        <span class="sk-tag">Accessibility (a11y)</span>
       </div>
     </div>
 
-    <!-- services -->
+    <!-- what I do -->
     <div class="about-services">
-      <p class="section-label">Services</p>
-      <h2 class="section-heading">What I Offer</h2>
-      <p class="section-sub">Specialized frontend development services to bring your digital vision to life with modern technologies and best practices.</p>
-      <div class="svc-grid">
+      <p class="section-label">What I do</p>
+      <div class="svc-list">
         <div class="svc-item">
-          <p class="svc-name">Web Development</p>
-          <p class="svc-desc">Creating beautiful, mobile-first websites that work perfectly on all devices using modern CSS and design principles.</p>
-          <ul class="svc-feats">
-            <li>Mobile-First Design</li>
-            <li>Cross-Browser Compatible</li>
-            <li>Modern UI/UX</li>
-            <li>Performance Optimized</li>
-          </ul>
+          <span class="svc-num">01</span>
+          <div>
+            <p class="svc-name">Frontend Development</p>
+            <p class="svc-desc">Building fast, responsive interfaces with React and TypeScript, from first component to production.</p>
+          </div>
         </div>
         <div class="svc-item">
-          <p class="svc-name">React Development</p>
-          <p class="svc-desc">Building dynamic, interactive web applications with React, hooks, and modern state management solutions.</p>
-          <ul class="svc-feats">
-            <li>Component Architecture</li>
-            <li>State Management</li>
-            <li>React Hooks</li>
-            <li>Performance Optimization</li>
-          </ul>
+          <span class="svc-num">02</span>
+          <div>
+            <p class="svc-name">UI Engineering</p>
+            <p class="svc-desc">Turning designs into pixel-accurate, accessible components that hold up across devices.</p>
+          </div>
         </div>
         <div class="svc-item">
-          <p class="svc-name">TypeScript Integration</p>
-          <p class="svc-desc">Developing type-safe applications with TypeScript for better code quality and maintainability.</p>
-          <ul class="svc-feats">
-            <li>Type Safety</li>
-            <li>Better IDE Support</li>
-            <li>Refactoring Tools</li>
-            <li>Error Prevention</li>
-          </ul>
+          <span class="svc-num">03</span>
+          <div>
+            <p class="svc-name">Brand &amp; Product — Silver Fox</p>
+            <p class="svc-desc">Running my own studio, taking projects from concept through to a shipped, polished product.</p>
+          </div>
         </div>
         <div class="svc-item">
-          <p class="svc-name">Tailwind CSS Styling</p>
-          <p class="svc-desc">Crafting beautiful, consistent designs with Tailwind CSS utility classes for rapid development.</p>
-          <ul class="svc-feats">
-            <li>Utility-First CSS</li>
-            <li>Custom Components</li>
-            <li>Responsive Design</li>
-            <li>Dark Mode Support</li>
-          </ul>
-        </div>
-        <div class="svc-item">
-          <p class="svc-name">Progressive Web Apps</p>
-          <p class="svc-desc">Building PWAs that provide native app-like experiences with offline functionality and push notifications.</p>
-          <ul class="svc-feats">
-            <li>Offline Support</li>
-            <li>Push Notifications</li>
-            <li>App-like Experience</li>
-            <li>Fast Loading</li>
-          </ul>
-        </div>
-        <div class="svc-item">
-          <p class="svc-name">Performance Optimization</p>
-          <p class="svc-desc">Optimizing websites for speed, SEO, and user experience with modern best practices and tools.</p>
-          <ul class="svc-feats">
-            <li>Core Web Vitals</li>
-            <li>SEO Optimization</li>
-            <li>Bundle Optimization</li>
-            <li>Lazy Loading</li>
-          </ul>
+          <span class="svc-num">04</span>
+          <div>
+            <p class="svc-name">Performance &amp; Polish</p>
+            <p class="svc-desc">Optimising for speed, SEO and the small interaction details that make a site feel considered.</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- experience -->
+    <!-- timeline -->
     <div class="about-timeline">
-      <p class="section-label">Experience</p>
-      <h2 class="section-heading">Professional Experience</h2>
-      <p class="section-sub">My professional journey as a frontend developer, learning, building, and growing through real-world projects.</p>
+      <p class="section-label">Journey</p>
       <div class="timeline">
         <div class="tl-entry">
-          <p class="tl-date">November 2025 — Present</p>
-          <p class="tl-role">Frontend Developer Intern, Sogrova</p>
-          <p class="tl-desc">Currently working as a frontend developer intern, building and maintaining modern websites with a focus on clean design, performance, and responsiveness. Actively involved in transforming design concepts into functional web solutions.</p>
-          <ul class="svc-feats" style="margin-top:.75rem">
-            <li>Developing modern and scalable websites</li>
-            <li>Ensuring mobile responsiveness and performance</li>
-            <li>Continuously improving UI/UX quality</li>
-          </ul>
+          <p class="tl-date">2025 — Present</p>
+          <p class="tl-role">Founder, Silver Fox</p>
+          <p class="tl-desc">Started my own studio, designing and building web experiences for independent clients.</p>
         </div>
         <div class="tl-entry">
-          <p class="tl-date">March 2025 — October 2025</p>
-          <p class="tl-role">Frontend Developer Intern, Oreone</p>
-          <p class="tl-desc">Worked as a frontend developer intern, contributing to the development of responsive and user-friendly web applications. Collaborated with designers and backend developers to implement modern UI components and improve overall user experience.</p>
-          <ul class="svc-feats" style="margin-top:.75rem">
-            <li>Developed responsive web interfaces</li>
-            <li>Implemented reusable UI components</li>
-            <li>Collaborated in a team-based development environment</li>
-          </ul>
+          <p class="tl-date">2023 — Present</p>
+          <p class="tl-role">Frontend Developer, Freelance</p>
+          <p class="tl-desc">Building React and TypeScript interfaces for a range of clients and products.</p>
+        </div>
+        <div class="tl-entry">
+          <p class="tl-date">2022</p>
+          <p class="tl-role">Focused on React &amp; TypeScript</p>
+          <p class="tl-desc">Deepened into component-driven development and modern tooling.</p>
+        </div>
+        <div class="tl-entry">
+          <p class="tl-date">Earlier</p>
+          <p class="tl-role">Learned the fundamentals</p>
+          <p class="tl-desc">Built a foundation in HTML, CSS and JavaScript before specialising.</p>
         </div>
       </div>
-    </div>
-
-    <!-- quote -->
-    <div class="about-quote" data-anim>
-      <p>"Do so much volume that, it would be unreasonable for you not to win."</p>
-      <span>— A principle I build by</span>
     </div>
 
     <div class="about-cta">
@@ -947,148 +765,23 @@ footer{
   </section>
 
   <!-- PROJECTS -->
-  <section class="section projects-section" id="projects">
-
-    <div class="projects-intro" data-anim>
-      <span class="eyebrow">Projects</span>
-      <h1 class="about-title">Selected Work</h1>
-      <div class="dividers"><span></span><span></span></div>
-      <p class="section-sub">A collection of sites I've designed and built — from brand launches to portfolios and community platforms.</p>
+  <section class="section panel-section" id="projects">
+    <div class="panel-photo" style="background:#1e293b">
+      <img src="silport.png" alt="My Projects"
+           onerror="this.style.display='none'">
     </div>
-
-    <div class="proj-filters">
-      <button class="fbtn active" data-f="all">All</button>
-      <button class="fbtn" data-f="brand">Brand &amp; E-commerce</button>
-      <button class="fbtn" data-f="portfolio">Portfolio</button>
-      <button class="fbtn" data-f="community">Community</button>
-    </div>
-
-    <div class="pc-grid">
-
-
-
-      <article class="pc" data-t="brand"
-        data-title="Vintage Cars" data-cat="Brand &amp; E-commerce"
-        data-desc="Rolling through time."
-        data-tech="" data-mark="MJ"
-        data-live="https://vintagecars1900.netlify.app/" data-repo="https://github.com/Ann2David/vintage">
-        <div class="pc-img"><img src="Vintage.png" alt="Mike J" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Brand &amp; E-commerce</p>
-          <h3 class="pc-name">Vintage Cars</h3>
-          <p class="pc-desc">Rolling through time.</p>
-          <div class="pc-links">
-            <a href="https://vintagecars1900.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/vintage" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-
-
-      
-      <article class="pc" data-t="brand"
-        data-title="Melan Blvd" data-cat="Brand &amp; E-commerce"
-        data-desc="Luxury makeup brand "
-        data-tech="" data-mark="MJ"
-        data-live="https://melanblvd.netlify.app/" data-repo="https://github.com/Ann2David/melanblvd">
-        <div class="pc-img"><img src="beauty.png" alt="Mike J" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Brand &amp; E-commerce</p>
-          <h3 class="pc-name">Melan Blvd</h3>
-          <p class="pc-desc">Luxury makeup brand </p>
-          <div class="pc-links">
-            <a href="https://melanblvd.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/melanblvd" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-
-
-      <article class="pc" data-t="brand"
-        data-title="Fashion Brand Website" data-cat="Brand &amp; E-commerce"
-        data-desc="Bringing a luxury fashion brand to life with a stunning online presence."
-        data-tech="" data-mark="MJ"
-        data-live="https://mikej.netlify.app/" data-repo="https://github.com/Ann2David/Mikej">
-        <div class="pc-img"><img src="silport.png" alt="Mike J" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Brand &amp; E-commerce</p>
-          <h3 class="pc-name">Fashion Brand Website</h3>
-          <p class="pc-desc">Bringing a luxury fashion brand to life with a stunning online presence.</p>
-          <div class="pc-links">
-            <a href="https://mikej.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/Mikej" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="pc" data-t="portfolio"
-        data-title="Architect Portfolio" data-cat="Portfolio"
-        data-desc="A minimalist portfolio for an architect with a strong mobile layout."
-        data-tech="" data-mark="TA"
-        data-live="https://tochiarchportfolio.netlify.app/" data-repo="https://github.com/Ann2David/TMM_Resume">
-        <div class="pc-img"><img src="Portfolioshot.png" alt="Tochi Arch" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Portfolio</p>
-          <h3 class="pc-name">Architect Portfolio</h3>
-          <p class="pc-desc">A minimalist portfolio for an architect with a strong mobile layout.</p>
-          <div class="pc-links">
-            <a href="https://tochiarchportfolio.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/TMM_Resume" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="pc" data-t="brand"
-        data-title="Yoghurt Website" data-cat="Brand &amp; E-commerce"
-        data-desc="A clean, product-focused website built with HTML, Tailwind CSS and JavaScript."
-        data-tech="HTML,Tailwind CSS,JavaScript" data-mark="JY"
-        data-live="https://jayzyoghurt.netlify.app/" data-repo="https://github.com/Ann2David/jayz_yoghurt">
-        <div class="pc-img"><img src="jy.png" alt="Tochi Arch" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Brand &amp; E-commerce</p>
-          <h3 class="pc-name">Yoghurt Website</h3>
-          <p class="pc-desc">Built with HTML, Tailwind CSS and JavaScript.</p>
-          <div class="pc-links">
-            <a href="https://jayzyoghurt.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/jayz_yoghurt" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="pc" data-t="community"
-        data-title="A Mentorship Website" data-cat="Community"
-        data-desc="Bringing mentoring and life purpose to the web."
-        data-tech="" data-mark="SC"
-        data-live="https://soldiersofchrist.netlify.app/" data-repo="https://github.com/Ann2David/Soldiers_of_Christ">
-         <div class="pc-img"><img src="SOCPROJECT.png" alt="Tochi Arch" class="pc-mark"></div>
-        <div class="pc-body">
-          <p class="pc-cat">Community</p>
-          <h3 class="pc-name">A Mentorship Website</h3>
-          <p class="pc-desc">Bringing mentoring and life purpose to the web.</p>
-          <div class="pc-links">
-            <a href="https://soldiersofchrist.netlify.app/" target="_blank" class="pc-link" onclick="event.stopPropagation()">Live Demo</a>
-            <a href="https://github.com/Ann2David/Soldiers_of_Christ" target="_blank" class="pc-link" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-      </article>
-
+    <div class="panel-text">
+      <h1 class="panel-title">My Projects</h1>
+      <div class="panel-divider">
+        <div class="panel-divider-bar"></div>
+        <div class="panel-divider-bar"></div>
+      </div>
+      <p class="panel-subtitle">Selected works that I've built over the years and am currently working on.</p>
+      <div class="panel-btn-wrap">
+        <a href="https://github.com/Ann2David" target="_blank" class="btn-dark">View Projects</a>
+      </div>
     </div>
   </section>
-
-  <!-- PROJECT DETAIL MODAL -->
-  <div class="pc-modal-overlay" id="pcModalOverlay">
-    <div class="pc-modal">
-      <button class="pc-modal-close" id="pcModalClose" aria-label="Close">✕</button>
-      <div class="pc-modal-mark" id="pcModalMark"></div>
-      <p class="pc-modal-cat" id="pcModalCat"></p>
-      <h2 class="pc-modal-title" id="pcModalTitle"></h2>
-      <p class="pc-modal-desc" id="pcModalDesc"></p>
-      <div class="pc-modal-tech" id="pcModalTech"></div>
-      <div class="pc-modal-links" id="pcModalLinks"></div>
-    </div>
-  </div>
 
   <!-- CONTACT -->
   <section class="section panel-section" id="contact">
@@ -1234,41 +927,25 @@ document.querySelectorAll('[data-section]').forEach(btn => {
 
 /* ─────────────────────────────────────────────────────
    SIDEBAR ACTIVE STATE
-   Recomputed on every scroll: finds whichever section's
-   top has passed the vertical center of the viewport, and
-   is the last one to do so. Works reliably regardless of
-   how tall each section is (unlike an area-based observer).
 ───────────────────────────────────────────────────── */
-const sectionIds = ['home', 'about', 'projects', 'contact'];
+const sectionIds = ['home', 'about', 'services', 'projects', 'experience', 'contact'];
 
-function updateActiveSidebar() {
-  const centerY = window.scrollY + window.innerHeight / 2;
-  let currentId = sectionIds[0];
-
-  sectionIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (centerY >= el.offsetTop) currentId = id;
+const ioActive = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      sectionIds.forEach(id => {
+        document.querySelectorAll(`[data-section="${id}"]`).forEach(btn => {
+          btn.classList.toggle('active', id === e.target.id);
+        });
+      });
+    }
   });
+}, { threshold: 0.4 });
 
-  document.querySelectorAll('[data-section]').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.section === currentId);
-  });
-}
-
-let sidebarTicking = false;
-window.addEventListener('scroll', () => {
-  if (!sidebarTicking) {
-    requestAnimationFrame(() => {
-      updateActiveSidebar();
-      sidebarTicking = false;
-    });
-    sidebarTicking = true;
-  }
-}, { passive: true });
-
-window.addEventListener('resize', updateActiveSidebar);
-updateActiveSidebar();
+sectionIds.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) ioActive.observe(el);
+});
 
 /* ─────────────────────────────────────────────────────
    SCROLL INDICATOR
@@ -1366,26 +1043,41 @@ function initParallax() {
 }
 
 /* ─────────────────────────────────────────────────────
-   SERVICE CARDS — stagger fade/rise in
+   SKILL CATEGORY TABS — switch visible panel
+───────────────────────────────────────────────────── */
+document.querySelectorAll('.sk-cat').forEach(cat => {
+  cat.addEventListener('click', () => {
+    document.querySelectorAll('.sk-cat').forEach(c => c.classList.remove('active'));
+    cat.classList.add('active');
+
+    const target = cat.dataset.panel;
+    document.querySelectorAll('.sk-panel').forEach(panel => {
+      panel.classList.toggle('active', panel.dataset.panel === target);
+    });
+  });
+});
+
+/* ─────────────────────────────────────────────────────
+   SERVICE ITEMS — stagger slide-in from left
 ───────────────────────────────────────────────────── */
 const svcObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     entry.target.querySelectorAll('.svc-item').forEach((item, i) => {
       item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
+      item.style.transform = 'translateX(-24px)';
       setTimeout(() => {
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, i * 90);
+        item.style.transform = 'translateX(0)';
+      }, i * 100);
     });
     svcObserver.unobserve(entry.target);
   });
 }, { threshold: 0.1 });
 
-const svcGrid = document.querySelector('.svc-grid');
-if (svcGrid) svcObserver.observe(svcGrid);
+const svcList = document.querySelector('.svc-list');
+if (svcList) svcObserver.observe(svcList);
 
 /* ─────────────────────────────────────────────────────
    TIMELINE — stagger entries in
@@ -1460,99 +1152,6 @@ if (ctaBig && ctaBig.parentElement) {
     ctaBig.style.textDecoration = 'none';
   });
 }
-
-/* ─────────────────────────────────────────────────────
-   PROJECT FILTER TABS
-───────────────────────────────────────────────────── */
-document.querySelectorAll('.fbtn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.f;
-    document.querySelectorAll('.pc').forEach((card, idx) => {
-      const show = filter === 'all' || card.dataset.t === filter;
-      if (show) {
-        card.classList.remove('pc-hidden');
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(14px)';
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, idx * 50);
-        });
-      } else {
-        card.classList.add('pc-hidden');
-      }
-    });
-  });
-});
-
-/* ─────────────────────────────────────────────────────
-   PROJECT DETAIL MODAL
-───────────────────────────────────────────────────── */
-const pcOverlay = document.getElementById('pcModalOverlay');
-const pcModalMark = document.getElementById('pcModalMark');
-const pcModalCat = document.getElementById('pcModalCat');
-const pcModalTitle = document.getElementById('pcModalTitle');
-const pcModalDesc = document.getElementById('pcModalDesc');
-const pcModalTech = document.getElementById('pcModalTech');
-const pcModalLinks = document.getElementById('pcModalLinks');
-const pcModalClose = document.getElementById('pcModalClose');
-
-function openProjectModal(card) {
-  const d = card.dataset;
-  pcModalMark.textContent = d.mark || '';
-  pcModalCat.textContent = d.cat || '';
-  pcModalTitle.textContent = d.title || '';
-  pcModalDesc.textContent = d.desc || '';
-
-  pcModalTech.innerHTML = '';
-  const tech = (d.tech || '').split(',').map(t => t.trim()).filter(Boolean);
-  tech.forEach(t => {
-    const span = document.createElement('span');
-    span.textContent = t;
-    pcModalTech.appendChild(span);
-  });
-  pcModalTech.style.display = tech.length ? 'flex' : 'none';
-
-  pcModalLinks.innerHTML = '';
-  if (d.live) {
-    const a = document.createElement('a');
-    a.href = d.live; a.target = '_blank'; a.className = 'btn-dark';
-    a.textContent = 'Live Demo';
-    pcModalLinks.appendChild(a);
-  }
-  if (d.repo) {
-    const a = document.createElement('a');
-    a.href = d.repo; a.target = '_blank'; a.className = 'btn-outline';
-    a.textContent = 'GitHub';
-    pcModalLinks.appendChild(a);
-  }
-
-  pcOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeProjectModal() {
-  pcOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.pc').forEach(card => {
-  card.addEventListener('click', () => openProjectModal(card));
-});
-if (pcModalClose) pcModalClose.addEventListener('click', closeProjectModal);
-if (pcOverlay) {
-  pcOverlay.addEventListener('click', e => {
-    if (e.target === pcOverlay) closeProjectModal();
-  });
-}
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeProjectModal();
-});
 </script>
 </body>
 </html>
